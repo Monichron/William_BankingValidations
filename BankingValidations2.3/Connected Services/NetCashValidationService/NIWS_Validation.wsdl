@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NIWS_Validation" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_INIWS_Validation_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="ValidateBankAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BranchCode" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="AccountType" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateBankAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateBankAccountResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateBranchCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BranchCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateBranchCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateBranchCodeResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBankList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBankListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetBankListResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBankListWithDefaultBranchCode">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBankListWithDefaultBranchCodeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetBankListWithDefaultBranchCodeResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBranchList">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BranchName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBranchListResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetBranchListResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="IdNumber" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateIdResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBranchListBySuburb">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="SuburbName" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBranchListBySuburbResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetBranchListBySuburbResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="INIWS_Validation_ValidateBankAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_ValidateBankAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_ValidateBranchCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBranchCode" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_ValidateBranchCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateBranchCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBankList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankList" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBankList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBankListWithDefaultBranchCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankListWithDefaultBranchCode" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBankListWithDefaultBranchCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankListWithDefaultBranchCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBranchList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchList" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBranchList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchListResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_ValidateId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateId" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_ValidateId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBranchListBySuburb_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchListBySuburb" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Validation_GetBranchListBySuburb_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBranchListBySuburbResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INIWS_Validation">
+    <wsdl:operation name="ValidateBankAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/ValidateBankAccount" message="tns:INIWS_Validation_ValidateBankAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/ValidateBankAccountResponse" message="tns:INIWS_Validation_ValidateBankAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBranchCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/ValidateBranchCode" message="tns:INIWS_Validation_ValidateBranchCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/ValidateBranchCodeResponse" message="tns:INIWS_Validation_ValidateBranchCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankList">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/GetBankList" message="tns:INIWS_Validation_GetBankList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/GetBankListResponse" message="tns:INIWS_Validation_GetBankList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankListWithDefaultBranchCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/GetBankListWithDefaultBranchCode" message="tns:INIWS_Validation_GetBankListWithDefaultBranchCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/GetBankListWithDefaultBranchCodeResponse" message="tns:INIWS_Validation_GetBankListWithDefaultBranchCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchList">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/GetBranchList" message="tns:INIWS_Validation_GetBranchList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/GetBranchListResponse" message="tns:INIWS_Validation_GetBranchList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateId">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/ValidateId" message="tns:INIWS_Validation_ValidateId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/ValidateIdResponse" message="tns:INIWS_Validation_ValidateId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchListBySuburb">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Validation/GetBranchListBySuburb" message="tns:INIWS_Validation_GetBranchListBySuburb_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Validation/GetBranchListBySuburbResponse" message="tns:INIWS_Validation_GetBranchListBySuburb_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_INIWS_Validation" type="tns:INIWS_Validation">
+    <wsp:PolicyReference URI="#BasicHttpBinding_INIWS_Validation_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateBankAccount">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/ValidateBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateBranchCode">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/ValidateBranchCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankList">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/GetBankList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankListWithDefaultBranchCode">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/GetBankListWithDefaultBranchCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchList">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/GetBranchList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateId">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/ValidateId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchListBySuburb">
+      <soap:operation soapAction="http://tempuri.org/INIWS_Validation/GetBranchListBySuburb" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NIWS_Validation">
+    <wsdl:port name="BasicHttpBinding_INIWS_Validation" binding="tns:BasicHttpBinding_INIWS_Validation">
+      <soap:address location="https://ws.netcash.co.za/NIWS/NIWS_Validation.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

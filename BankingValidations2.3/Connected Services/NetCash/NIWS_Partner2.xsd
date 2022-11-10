@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NC.DG.TMS.C.WCF.NIWS" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NC.DG.TMS.C.WCF.NIWS" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ValidateServiceKeyRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MerchantAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceInfoList" nillable="true" type="tns:ServiceInfoList" />
+      <xs:element minOccurs="0" name="SoftwareVendorKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateServiceKeyRequest" nillable="true" type="tns:ValidateServiceKeyRequest" />
+  <xs:complexType name="ServiceInfoList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceInfo" nillable="true" type="tns:ServiceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceInfoList" nillable="true" type="tns:ServiceInfoList" />
+  <xs:complexType name="ServiceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ServiceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceInfo" nillable="true" type="tns:ServiceInfo" />
+  <xs:complexType name="ValidateServiceKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceInfo" nillable="true" type="tns:ServiceInfoResponseList" />
+      <xs:element minOccurs="0" name="SoftwareVendorKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateServiceKeyResponse" nillable="true" type="tns:ValidateServiceKeyResponse" />
+  <xs:complexType name="ServiceInfoResponseList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ServiceInfoResponse" nillable="true" type="tns:ServiceInfoResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceInfoResponseList" nillable="true" type="tns:ServiceInfoResponseList" />
+  <xs:complexType name="ServiceInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ServiceId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceStatus" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceInfoResponse" nillable="true" type="tns:ServiceInfoResponse" />
+  <xs:complexType name="ValidateComplianceRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MerchantAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoftwareVendorKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateComplianceRequest" nillable="true" type="tns:ValidateComplianceRequest" />
+  <xs:complexType name="ValidateComplianceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MerchantAccount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SoftwareVendorKey" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateComplianceResponse" nillable="true" type="tns:ValidateComplianceResponse" />
+</xs:schema>

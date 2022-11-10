@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NIWS_Partner" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_INIWS_Partner_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://ws.netcash.co.za/NIWS/NIWS_Partner.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://ws.netcash.co.za/NIWS/NIWS_Partner.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://ws.netcash.co.za/NIWS/NIWS_Partner.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NC.DG.TMS.C.WCF.NIWS" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="INIWS_Partner_BatchFileUpload_InputMessage">
+    <wsdl:part name="parameters" element="tns:BatchFileUpload" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_BatchFileUpload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BatchFileUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RequestFileUploadReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestFileUploadReport" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RequestFileUploadReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestFileUploadReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_ValidateServiceKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateServiceKey" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_ValidateServiceKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateServiceKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_AccountSupportMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccountSupportMessage" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_AccountSupportMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccountSupportMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RequestAccountStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestAccountStatus" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RequestAccountStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestAccountStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RetrieveAccountStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAccountStatus" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RetrieveAccountStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAccountStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RetrievePNSHandle_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePNSHandle" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_RetrievePNSHandle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePNSHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_PartnerAuth_InputMessage">
+    <wsdl:part name="parameters" element="tns:PartnerAuth" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_PartnerAuth_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PartnerAuthResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_CreateOrUpdatePNSHandle_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdatePNSHandle" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_CreateOrUpdatePNSHandle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrUpdatePNSHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_DeletePNSHandle_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePNSHandle" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_DeletePNSHandle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePNSHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_ValidateComplianceStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateComplianceStatus" />
+  </wsdl:message>
+  <wsdl:message name="INIWS_Partner_ValidateComplianceStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateComplianceStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="INIWS_Partner">
+    <wsdl:operation name="BatchFileUpload">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/BatchFileUpload" message="tns:INIWS_Partner_BatchFileUpload_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/BatchFileUploadResponse" message="tns:INIWS_Partner_BatchFileUpload_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestFileUploadReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/RequestFileUploadReport" message="tns:INIWS_Partner_RequestFileUploadReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/RequestFileUploadReportResponse" message="tns:INIWS_Partner_RequestFileUploadReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateServiceKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/ValidateServiceKey" message="tns:INIWS_Partner_ValidateServiceKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/ValidateServiceKeyResponse" message="tns:INIWS_Partner_ValidateServiceKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountSupportMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/AccountSupportMessage" message="tns:INIWS_Partner_AccountSupportMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/AccountSupportMessageResponse" message="tns:INIWS_Partner_AccountSupportMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestAccountStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/RequestAccountStatus" message="tns:INIWS_Partner_RequestAccountStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/RequestAccountStatusResponse" message="tns:INIWS_Partner_RequestAccountStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAccountStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/RetrieveAccountStatus" message="tns:INIWS_Partner_RetrieveAccountStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/RetrieveAccountStatusResponse" message="tns:INIWS_Partner_RetrieveAccountStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePNSHandle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/RetrievePNSHandle" message="tns:INIWS_Partner_RetrievePNSHandle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/RetrievePNSHandleResponse" message="tns:INIWS_Partner_RetrievePNSHandle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PartnerAuth">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/PartnerAuth" message="tns:INIWS_Partner_PartnerAuth_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/PartnerAuthResponse" message="tns:INIWS_Partner_PartnerAuth_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdatePNSHandle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/CreateOrUpdatePNSHandle" message="tns:INIWS_Partner_CreateOrUpdatePNSHandle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/CreateOrUpdatePNSHandleResponse" message="tns:INIWS_Partner_CreateOrUpdatePNSHandle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePNSHandle">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/DeletePNSHandle" message="tns:INIWS_Partner_DeletePNSHandle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/DeletePNSHandleResponse" message="tns:INIWS_Partner_DeletePNSHandle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateComplianceStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/INIWS_Partner/ValidateComplianceStatus" message="tns:INIWS_Partner_ValidateComplianceStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INIWS_Partner/ValidateComplianceStatusResponse" message="tns:INIWS_Partner_ValidateComplianceStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_INIWS_Partner" type="tns:INIWS_Partner">
+    <wsp:PolicyReference URI="#WSHttpBinding_INIWS_Partner_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BatchFileUpload">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/BatchFileUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestFileUploadReport">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/RequestFileUploadReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateServiceKey">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/ValidateServiceKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountSupportMessage">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/AccountSupportMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestAccountStatus">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/RequestAccountStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAccountStatus">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/RetrieveAccountStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePNSHandle">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/RetrievePNSHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PartnerAuth">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/PartnerAuth" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrUpdatePNSHandle">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/CreateOrUpdatePNSHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePNSHandle">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/DeletePNSHandle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateComplianceStatus">
+      <soap12:operation soapAction="http://tempuri.org/INIWS_Partner/ValidateComplianceStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NIWS_Partner">
+    <wsdl:port name="WSHttpBinding_INIWS_Partner" binding="tns:WSHttpBinding_INIWS_Partner">
+      <soap12:address location="https://ws.netcash.co.za/NIWS/NIWS_Partner.svc" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://ws.netcash.co.za/NIWS/NIWS_Partner.svc</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
